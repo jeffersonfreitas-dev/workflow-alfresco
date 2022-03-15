@@ -5,15 +5,19 @@
     <userTask id="usertask1" name="User Task" activiti:assignee="${initiator.properties.userName}"></userTask>
     <endEvent id="endevent1" name="End"></endEvent>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="usertask1">
-    	<extensionElements>
-    		<activiti:executionListener event="start" class="org.alfresco.repo.workflow.activiti.listener.ScriptExecutionListener">
-    			<activiti:field name="script">
-    				<activiti:string>logger.log("Ola Mundo!!!!!!!");</activiti:string>
-    			</activiti:field>
-    		</activiti:executionListener>
-    	</extensionElements>
+      <extensionElements>
+        <activiti:executionListener event="start" class="org.alfresco.repo.workflow.activiti.listener.ScriptExecutionListener">
+          <activiti:field name="script">
+            <activiti:string><![CDATA[logger.log("Ola Mundo!!!!!!!");]]></activiti:string>
+          </activiti:field>
+        </activiti:executionListener>
+      </extensionElements>
     </sequenceFlow>
-    <sequenceFlow id="flow2" sourceRef="usertask1" targetRef="endevent1"></sequenceFlow>
+    <sequenceFlow id="flow2" sourceRef="usertask1" targetRef="endevent1">
+      <extensionElements>
+        <activiti:executionListener event="take" class="dev.jefferson.platformsample.Teste"></activiti:executionListener>
+      </extensionElements>
+    </sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_helloWorld">
     <bpmndi:BPMNPlane bpmnElement="helloWorld" id="BPMNPlane_helloWorld">
