@@ -31,6 +31,14 @@
                     <prop key="location">alfresco/module/${project.artifactId}/workflow/sample-process.bpmn20.xml</prop>
                     <prop key="mimetype">text/xml</prop>
                 </props>
+                
+                <props>
+                    <prop key="engineId">activiti</prop>
+                    <prop key="location">alfresco/module/${project.artifactId}/workflow/helloWorld.bpmn</prop>
+                    <prop key="mimetype">text/xml</prop>
+                    <prop key="redeploy">false</prop>
+                </props>
+                
             </list>
         </property>
     </bean>
